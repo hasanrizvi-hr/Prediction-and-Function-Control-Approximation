@@ -1,17 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
-
 # # Assignment 4 - Average Reward Softmax Actor-Critic
-# 
 # Welcome to your Course 3 Programming Assignment 4. In this assignment, you will implement **Average Reward Softmax Actor-Critic** in the Pendulum Swing-Up problem that you have seen earlier in the lecture. Through this assignment you will get hands-on experience in implementing actor-critic methods on a continuing task.
-# 
 # **In this assignment, you will:**
 #     1. Implement softmax actor-critic agent on a continuing task using the average reward formulation.
 #     2. Understand how to parameterize the policy as a function to learn, in a discrete action environment.
 #     3. Understand how to (approximately) sample the gradient of this objective to update the actor.
-#     4. Understand how to update the critic using differential TD error.
-# 
-
+#     4. Understand how to update the critic using differential TD error
 # ## Pendulum Swing-Up Environment
 # 
 # In this assignment, we will be using a Pendulum environment, adapted from [Santamaría et al. (1998)](http://www.incompleteideas.net/papers/SSR-98.pdf). This is also the same environment that we used in the lecture. The diagram below illustrates the environment.
