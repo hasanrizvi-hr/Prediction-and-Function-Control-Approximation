@@ -1,21 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
-
 # # Assignment 2 - Semi-gradient TD with a Neural Network
-# 
 # Welcome to Course 3 Programming Assignment 2. In the previous assignment, you implemented semi-gradient TD with State Aggregation for solving a **policy evaluation task**. In this assignment, you will implement **semi-gradient TD with a simple Neural Network** and use it for the same policy evaluation problem. 
-# 
 # You will implement an agent to evaluate a fixed policy on the 500-State Randomwalk. As you may remember from the previous assignment, the 500-state Randomwalk includes 500 states. Each episode begins with the agent at the center and terminates when the agent goes far left beyond state 1 or far right beyond state 500. At each time step, the agent selects to move either left or right with equal probability. The environment determines how much the agent moves in the selected direction.
 # 
 # **In this assignment, you will:**
 # - Implement stochastic gradient descent method for state-value prediction.
 # - Implement semi-gradient TD with a neural network as the function approximator and Adam algorithm.
-# - Compare performance of semi-gradient TD with a neural network and semi-gradient TD with tile-coding.
-# 
-
+# - Compare performance of semi-gradient TD with a neural network and semi-gradient TD with tile-coding. 
 # ## Packages
 # We import the following libraries that are required for this assignment:
-# 
 # - [numpy](www.numpy.org) : Fundamental package for scientific computing with Python.
 # - [matplotlib](http://matplotlib.org) : Library for plotting graphs in Python.
 # - [RL-Glue](http://www.jmlr.org/papers/v10/tanner09a.html) : Library for reinforcement learning experiments.
@@ -23,10 +17,7 @@
 # - BaseOptimizer : An abstract class that specifies the optimizer API for Agent.
 # - plot_script : Custom script to plot results.
 # - RandomWalkEnvironment : The Randomwalk environment script from Course 3 Assignment 1.
-
 # In[16]:
-
-
 # Do not modify this cell!
 
 # Import necessary libraries
