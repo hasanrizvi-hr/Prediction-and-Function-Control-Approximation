@@ -1,28 +1,18 @@
 #!/usr/bin/env python
 # coding: utf-8
-
 # # Assignment 1 - TD with State Aggregation
-# 
 # Welcome to your Course 3 Programming Assignment 1. In this assignment, you will implement **semi-gradient TD(0) with State Aggregation** in an environment with a large state space. This assignment will focus on the **policy evaluation task** (prediction problem) where the goal is to accurately estimate state values under a given (fixed) policy.
-# 
-# 
 # **In this assignment, you will:**
 # 1. Implement semi-gradient TD(0) with function approximation (state aggregation).
 # 2. Understand how to use supervised learning approaches to approximate value functions.
 # 3. Compare the impact of different resolutions of state aggregation, and see first hand how function approximation can speed up learning through generalization.
 # 
 # **Note: You can create new cells for debugging purposes but please do not duplicate any Read-only cells. This may break the grader.**
-
 # ## 500-State RandomWalk Environment
-# 
 # In this assignment, we will implement and use a smaller 500 state  version of the problem we covered in lecture  (see "State Aggregation with Monte Carlo”, and Example 9.1 in the [textbook](http://www.incompleteideas.net/book/RLbook2018.pdf)). The diagram below illustrates the problem.
-# 
-# ![](data/randomwalk_diagram.png)
-# 
-# There are 500 states numbered from 1 to 500, left to right, and all episodes begin with the agent located at the center, in state 250. For simplicity, we will consider state 0 and state 501 as the left and right terminal states respectively. 
-# 
+# ![](data/randomwalk_diagram.png) 
+# There are 500 states numbered from 1 to 500, left to right, and all episodes begin with the agent located at the center, in state 250. For simplicity, we will consider state 0 and state 501 as the left and right terminal states respectively.  
 # The episode terminates when the agent reaches the terminal state (state 0) on the left, or the terminal state (state 501) on the right. Termination on the left (state 0) gives the agent a reward of -1, and termination on the right (state 501) gives the agent a reward of +1.
-# 
 # The agent can take one of two actions: go left or go right. If the agent chooses the left action, then it transitions uniform randomly into one of the 100 neighboring states to its left. If the agent chooses the right action, then it transitions randomly into one of the 100 neighboring states to its right. 
 # 
 # States near the edge may have fewer than 100 neighboring states on that side. In this case, all transitions that would have taken the agent past the edge result in termination. If the agent takes the left action from state 50, then it has a 0.5 chance of terminating on the left. If it takes the right action from state 499, then it has a 0.99 chance of terminating on the right.
