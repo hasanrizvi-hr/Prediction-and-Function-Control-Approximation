@@ -24,11 +24,8 @@
 # Furthermore, since the goal is to reach and maintain a vertical position, there are no terminations nor episodes. Thus this problem can be formulated as a continuing task.
 # 
 # Similar to the Mountain Car task, the action in this pendulum environment is not strong enough to move the pendulum directly to the desired position. The agent must learn to first move the pendulum away from its desired position and gain enough momentum to successfully swing-up the pendulum. And even after reaching the upright position the agent must learn to continually balance the pendulum in this unstable position.
-
 # ## Packages
-# 
 # You will use the following packages in this assignment.
-# 
 # - [numpy](www.numpy.org) : Fundamental package for scientific computing with Python.
 # - [matplotlib](http://matplotlib.org) : Library for plotting graphs in Python.
 # - [RL-Glue](http://www.jmlr.org/papers/v10/tanner09a.html) : Library for reinforcement learning experiments.
@@ -42,10 +39,7 @@
 # 
 
 # In[1]:
-
-
 # Do not modify this cell!
-
 # Import necessary libraries
 # DO NOT IMPORT OTHER LIBRARIES - This will break the autograder.
 import numpy as np
@@ -61,8 +55,6 @@ from pendulum_env import PendulumEnvironment
 from agent import BaseAgent
 import plot_script
 import tiles3 as tc
-
-
 # ## Section 1: Create Tile Coding Helper Function
 # 
 # In this section, we are going to build a tile coding class for our agent that will make it easier to make calls to our tile coder.
@@ -84,7 +76,6 @@ import tiles3 as tc
 # 
 
 # In[2]:
-
 
 # [Graded]
 class PendulumTileCoder:
@@ -118,8 +109,7 @@ class PendulumTileCoder:
         returns:
         tiles -- np.array, active tiles
         
-        """
-        
+        """        
         ### Set the max and min of angle and ang_vel to scale the input (4 lines)
         # ANGLE_MIN = ?
         # ANGLE_MAX = ?
@@ -131,29 +121,22 @@ class PendulumTileCoder:
         ang_vel_min = -2 * np.pi
         ang_vel_max = 2 * np.pi
         ### END CODE HERE ###
-
-        
+*************************************************************************************************
         ### Use the ranges above and self.num_tiles to set angle_scale and ang_vel_scale (2 lines)
         # angle_scale = number of tiles / angle range
         # ang_vel_scale = number of tiles / ang_vel range
-        
+***************************************************************************************************
         ### START CODE HERE ###
         angle_scale = self.num_tiles / (angle_max - angle_min)
         ang_vel_scale = self.num_tiles / (ang_vel_max - ang_vel_min)
         ### END CODE HERE ###
-        
-        
+*******************************************************************************************************
         # Get tiles by calling tc.tileswrap method
         # wrapwidths specify which dimension to wrap over and its wrapwidth
         tiles = tc.tileswrap(self.iht, self.num_tilings, [angle * angle_scale, ang_vel * ang_vel_scale], wrapwidths=[self.num_tiles, False])
-                    
         return np.array(tiles)
-
-
 # Run the following code to verify `PendulumTilecoder`
-
 # In[3]:
-
 
 # -----------
 # Tested Cell
